@@ -18,7 +18,7 @@ def youtube_summary():
             transcript = loader.load()
 
             splitter = TokenTextSplitter(chunk_size=1000, chunk_overlap=100)
-            chunks = splitter.split_documents(transcript)  # Pass transcript as a list
+            chunks = splitter.split_documents(transcript)
 
             llm = GooglePalm(google_api_key=os.getenv('GOOGLE_API_KEY'), temperature=0.6)
             summarize_chain = load_summarize_chain(llm=llm, chain_type="refine")
